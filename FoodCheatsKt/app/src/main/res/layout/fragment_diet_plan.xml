@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📋 Your Diet Plan"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personalised to your mood &amp; calorie goal"
+            android:textSize="14sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Calorie card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="@color/primary"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Today's Calories"
+                            android:textColor="#CCffffff"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_total_calories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="— / — kcal"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="end">
+
+                        <TextView
+                            android:id="@+id/tv_calorie_goal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Goal: — kcal"
+                            android:textColor="#CCffffff"
+                            android:textSize="12sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_bmr"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#80ffffff"
+                            android:textSize="11sp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progress_calories"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/progress_drawable"
+                    android:background="@drawable/progress_background"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Mood selector -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How are you feeling today?"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:id="@+id/tv_selected_mood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="😊 Feeling Happy"
+            android:textSize="14sp"
+            android:textColor="@color/primary"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Mood chips horizontal scroll -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView android:id="@+id/chip_happy"
+                    android:layout_width="wrap_content" android:layout_height="40dp"
+                    android:text="😊 Happy" android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:background="@drawable/bg_chip_selector"
+                    android:textColor="@color/chip_text_color"
+                    android:textSize="13sp" android:layout_marginEnd="8dp"/>
+
+                <TextView android:id="@+id/chip_stressed"
+                    android:layout_width="wrap_content" android:layout_height="40dp"
+                    android:text="😤 Stressed" android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:background="@drawable/bg_chip_selector"
+                    android:textColor="@color/chip_text_color"
+                    android:textSize="13sp" android:layout_marginEnd="8dp"/>
+
+                <TextView android:id="@+id/chip_tired"
+                    android:layout_width="wrap_content" android:layout_height="40dp"
+                    android:text="😴 Tired" android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:background="@drawable/bg_chip_selector"
+                    android:textColor="@color/chip_text_color"
+                    android:textSize="13sp" android:layout_marginEnd="8dp"/>
+
+                <TextView android:id="@+id/chip_focused"
+                    android:layout_width="wrap_content" android:layout_height="40dp"
+                    android:text="🧠 Focused" android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:background="@drawable/bg_chip_selector"
+                    android:textColor="@color/chip_text_color"
+                    android:textSize="13sp" android:layout_marginEnd="8dp"/>
+
+                <TextView android:id="@+id/chip_energetic"
+                    android:layout_width="wrap_content" android:layout_height="40dp"
+                    android:text="⚡ Energetic" android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:background="@drawable/bg_chip_selector"
+                    android:textColor="@color/chip_text_color"
+                    android:textSize="13sp" android:layout_marginEnd="8dp"/>
+
+                <TextView android:id="@+id/chip_comfort"
+                    android:layout_width="wrap_content" android:layout_height="40dp"
+                    android:text="🤗 Comfort" android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:background="@drawable/bg_chip_selector"
+                    android:textColor="@color/chip_text_color"
+                    android:textSize="13sp" android:layout_marginEnd="8dp"/>
+
+                <TextView android:id="@+id/chip_sick"
+                    android:layout_width="wrap_content" android:layout_height="40dp"
+                    android:text="🤒 Sick" android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:background="@drawable/bg_chip_selector"
+                    android:textColor="@color/chip_text_color"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_regenerate_plan"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="🔄 Regenerate Plan"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:strokeColor="@color/primary"
+            app:cornerRadius="12dp"
+            android:textColor="@color/primary"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🍽️ Today's Meals"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="12dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_diet_plan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

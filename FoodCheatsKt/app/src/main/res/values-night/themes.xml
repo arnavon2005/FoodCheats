@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.FoodCheats" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">#FF6B35</item>
+        <item name="android:colorBackground">#F8F4F0</item>
+    </style>
+</resources>
